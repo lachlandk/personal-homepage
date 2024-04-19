@@ -1,0 +1,62 @@
+* {
+	box-sizing: border-box;
+	margin: 0; /* to get rid of browsers applying margins by default (very silly) */
+
+	font-family: monospace;
+}
+
+body {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: stretch;
+	padding: 0 100px;
+}
+
+nav {
+	margin: 20px;
+	flex: 0 1 auto;
+	/*padding: 0 20px;*/
+}
+
+nav > * {
+	margin: 0 0 20px 0;
+}
+
+nav img {
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+}
+
+nav header {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+main {
+	margin: 20px 20px 20px 0;
+	flex: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: stretch;
+}
+
+section {
+	margin: 0 20px 20px 20px;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+section header {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+footer {
+	position: absolute;
+	bottom: 10px;
+	font-size: 14px;
+}
