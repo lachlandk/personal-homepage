@@ -1,0 +1,46 @@
+/* styles to be included in every page */
+
+:root {
+	--colour-bg: #021014;
+	--colour-accent: #366570;
+	--colour-fg: white;
+	--transition-exp: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0; /* to get rid of browsers applying margins by default (very silly) */
+
+	font-family: monospace;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	display: inline-block;
+	text-decoration: none;
+	color: var(--colour-fg);
+}
+
+nav ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--colour-bg);
+	color: var(--colour-fg);
+}
+
+footer {
+	padding: 1rem 0 1rem var(--left-margin);
+	font-size: 1.2rem;
+	color: var(--colour-accent);
+}

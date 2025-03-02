@@ -1,0 +1,16 @@
+{
+  "name": "personal-homepage",
+  "version": "1.0.0",
+  "description": "My personal homepage",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lachlandk/personal-homepage.git"
+  },
+  "author": "Lachlan Dufort-Kennett",
+  "bugs": {
+    "url": "https://github.com/lachlandk/personal-homepage/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/lachlandk/personal-homepage#readme"
+}
