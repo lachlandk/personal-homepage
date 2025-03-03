@@ -12,5 +12,13 @@
     "url": "https://github.com/lachlandk/personal-homepage/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/lachlandk/personal-homepage#readme"
+  "homepage": "https://github.com/lachlandk/personal-homepage#readme",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite build && vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
 }
