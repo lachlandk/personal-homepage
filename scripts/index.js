@@ -29,3 +29,19 @@ document.querySelectorAll(".card").forEach(card => {
 		event.currentTarget.style.setProperty("--rotateY", "0");
 	});
 });
+
+// scroll animations (elements transition into view when they enter the viewport for the first time)
+const observer = new IntersectionObserver(entries => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting && entry.target.classList.contains("scroll-hidden")) {
+			entry.target.classList.replace("scroll-hidden", "scroll-show");
+			const nav = document.querySelector(`#${entry.target.children[0].id}-link`);
+			nav.classList.replace("scroll-hidden", "scroll-show");
+		}
+	});
+}, {
+	threshold: 0.5
+});
+
+const hiddenScrollSections = document.querySelectorAll(".section-wrapper")
+hiddenScrollSections.forEach(element => {observer.observe(element)});

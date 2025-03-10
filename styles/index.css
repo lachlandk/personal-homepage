@@ -103,6 +103,22 @@ header img {
 	flex-flow: column nowrap;
 }
 
+/* scroll animations (elements transition into view when they enter the viewport for the first time) */
+@media screen and (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+	.scroll-hidden {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	.scroll-show {
+		opacity: 1;
+	}
+
+	.scroll-animate {
+		transition: opacity 1s, transform 1s;
+	}
+}
+
 /* ------------------- */
 /* card section styles */
 /* ------------------- */
@@ -244,4 +260,10 @@ section {
 	.card:focus-within .card-content {
 		transition-duration: 0ms;
 	}
+}
+
+footer {
+	padding: 1rem;
+	font-size: 1.2rem;
+	color: var(--colour-accent);
 }
