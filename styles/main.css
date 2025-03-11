@@ -38,3 +38,8 @@ body {
 	background: var(--colour-bg);
 	color: var(--colour-fg);
 }
+
+:where(h1) { /* default styles for h1 */
+	margin-block: 0;
+	font-size: 2em;
+}

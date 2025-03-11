@@ -21,6 +21,10 @@
 	padding: 1rem 2rem;
 }
 
+#quick-links li a:hover,  #showcase-nav li a:focus {
+	text-decoration: underline;
+}
+
 main {
 	display: flex;
 	flex-flow: row nowrap;
@@ -94,13 +98,28 @@ header img {
 
 /* side navbar to go between card sections */
 #showcase-nav {
-	margin: 36rem 2rem 0 2rem;
+	margin: 80vh 2rem 0 2rem;
 	font-size: 2rem;
 	align-self: flex-start;
 	position: sticky;
 	top: 0;
 	display: flex;
 	flex-flow: column nowrap;
+}
+
+#showcase-nav li {
+	margin-bottom: 1rem;
+}
+
+#showcase-nav li a:hover,  #showcase-nav li a:focus {
+	text-decoration: underline;
+	transform: translateX(0.5rem);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+	#showcase-nav li a {
+		transition: transform 500ms var(--transition-exp);
+	}
 }
 
 /* scroll animations (elements transition into view when they enter the viewport for the first time) */

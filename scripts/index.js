@@ -43,5 +43,14 @@ const observer = new IntersectionObserver(entries => {
 	threshold: 0.5
 });
 
-const hiddenScrollSections = document.querySelectorAll(".section-wrapper")
+const hiddenScrollSections = document.querySelectorAll(".section-wrapper");
 hiddenScrollSections.forEach(element => {observer.observe(element)});
+
+// remove focus on back to top link when clicked
+const backToTopLink = document.querySelector("#back-to-top-link a");
+backToTopLink.addEventListener("click", event => {
+	document.activeElement.blur();
+	event.preventDefault();
+  	window.scrollTo(0, 0);
+	history.replaceState(null, "", window.location.href.split("#")[0]);
+});
