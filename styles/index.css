@@ -25,13 +25,8 @@
 	text-decoration: underline;
 }
 
-main {
-	display: flex;
-	flex-flow: row nowrap;
-}
-
 /* parallax */
-.parallax {
+.parallax-wrapper {
 	contain: paint;
 	display: grid;
 	grid-template-areas: "stack";
@@ -40,15 +35,16 @@ main {
 	background: var(--colour-bg);
 }
 
-.parallax > * {
+.parallax-wrapper > * {
 	grid-area: stack;
 	/* animation: parallax linear; */
 	/* animation-timeline: scroll(root); */
 }
 
-.parallax-background {
+#parallax-background {
 	position: absolute;
-	top: 100px; /* ************************************************************************************************************************ */
+	top: 0;
+	/* top: 100px; ************************************************************************************************************************ */
 	/* --parallax-speed: -300; */
 	z-index: -1;
 	display: block;
@@ -63,6 +59,11 @@ main {
 		transform: translateY(calc(var(--parallax-speed) * 1px));
 	}
 } */
+
+main {
+	display: flex;
+	flex-flow: row nowrap;
+}
 
 /* main page content */
 #content {

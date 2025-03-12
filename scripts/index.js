@@ -54,3 +54,11 @@ backToTopLink.addEventListener("click", event => {
   	window.scrollTo(0, 0);
 	history.replaceState(null, "", window.location.href.split("#")[0]);
 });
+
+// parallax for background (to be replaced with CSS when scroll-timeline becomes widely available)
+const parallaxSpeed = 0.5;
+const parallaxBackground = document.querySelector("#parallax-background");
+window.addEventListener("scroll", () => {
+	const distance = window.scrollY;
+	parallaxBackground.style.transform = `translateY(${parallaxSpeed * distance}px)`;
+});
