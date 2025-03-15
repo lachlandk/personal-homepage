@@ -13,7 +13,6 @@ body {
 }
 
 #lecture-notes-nav {
-	flex-basis: 25vw;
 	min-width: 27rem;
 	padding: 1rem 2rem;
 	display: flex;
@@ -91,10 +90,55 @@ main {
 	margin: 1rem 0;
 }
 
+@media screen and (max-width: 1050px) {
+	#page-nav {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#lecture-notes-nav {
+		display: none;
+	}
+}
+
 footer {
 	position: absolute;
 	bottom: 2rem;
 	font-size: 1rem;
+}
+
+.section-anchor {
+	display: grid;
+	grid-template-columns: min-content auto;
+	position: relative;
+}
+
+.section-anchor a {
+	grid-row-start: 1;
+	align-self: start;
+	line-height: 1;
+	transform: translateX(-50%) translateY(100%);
+	opacity: 0.5;
+}
+
+.section-anchor a:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.25em;
+	opacity: 1;
+}
+
+.section-anchor a:focus {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+	opacity: 1;
+}
+
+.section-anchor-hidden {
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	position: absolute;
 }
 
 .external-link {
