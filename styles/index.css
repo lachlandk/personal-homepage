@@ -30,35 +30,22 @@
 	contain: paint;
 	display: grid;
 	grid-template-areas: "stack";
-
-	/* z-index: 0; */
-	background: var(--colour-bg);
 }
 
 .parallax-wrapper > * {
 	grid-area: stack;
-	/* animation: parallax linear; */
-	/* animation-timeline: scroll(root); */
 }
 
 #parallax-background {
 	position: absolute;
-	top: 0;
-	/* top: 100px; ************************************************************************************************************************ */
-	/* --parallax-speed: -300; */
+	inset: 0;
 	z-index: -1;
-	display: block;
-	max-width: 100%;
-	/*background: var(--colour-bg);*/
-	mix-blend-mode: screen;
-	/*filter: opacity(0.1) contrast(1000);*/
+	background: var(--colour-bg);
 }
 
-/* @keyframes parallax {
-	to {
-		transform: translateY(calc(var(--parallax-speed) * 1px));
-	}
-} */
+#parallax-img {
+	mix-blend-mode: screen;
+}
 
 main {
 	display: flex;

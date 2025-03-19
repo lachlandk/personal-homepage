@@ -2,7 +2,6 @@
 
 // set initial vertical offset for card title
 document.querySelectorAll(".card-content").forEach(cardContent => {
-	// TODO bug: this doesn't run for cards that aren't shown initially
 	const title = cardContent.querySelector(".card-title");
 	cardContent.style.setProperty("--card-title-height", title.clientHeight.toString() + "px")
 });
@@ -31,20 +30,25 @@ document.querySelectorAll(".card").forEach(card => {
 });
 
 // scroll animations (elements transition into view when they enter the viewport for the first time)
+const scrollSections = [...document.querySelectorAll(".section-wrapper")];
 const observer = new IntersectionObserver(entries => {
 	entries.forEach(entry => {
-		if (entry.isIntersecting && entry.target.classList.contains("scroll-hidden")) {
-			entry.target.classList.replace("scroll-hidden", "scroll-show");
-			const nav = document.querySelector(`#${entry.target.children[0].id}-link`);
-			nav.classList.replace("scroll-hidden", "scroll-show");
+		if (entry.isIntersecting) {
+			const sectionIndex = scrollSections.indexOf(entry.target); // check which section has entered viewport (in case page has loaded scrolled down)
+			for (let i=0; i <= sectionIndex; i++) { // show all previous sections and the current one
+				scrollSections[i].classList.replace("scroll-hidden", "scroll-show");
+				const nav = document.getElementById(`${scrollSections[i].children[0].id}-link`);
+				nav.classList.replace("scroll-hidden", "scroll-show");
+			}
+			if (sectionIndex == scrollSections.length - 1) {
+				observer.disconnect(); // remove observer when all sections have loaded in
+			}
 		}
 	});
 }, {
 	threshold: 0.5
 });
-
-const hiddenScrollSections = document.querySelectorAll(".section-wrapper");
-hiddenScrollSections.forEach(section => observer.observe(section));
+scrollSections.forEach(section => observer.observe(section));
 
 // remove focus on back to top link when clicked
 const backToTopLink = document.querySelector("#back-to-top-link a");
@@ -55,9 +59,10 @@ backToTopLink.addEventListener("click", event => {
 	history.replaceState(null, "", window.location.href.split("#")[0]);
 });
 
-// parallax for background (to be replaced with CSS when scroll-timeline becomes widely available)
+// parallax for background
+// TODO: replace with CSS when scroll-timeline becomes widely available
 const parallaxSpeed = 0.5;
-const parallaxBackground = document.querySelector("#parallax-background");
+const parallaxBackground = document.getElementById("parallax-background");
 window.addEventListener("scroll", () => {
 	const distance = window.scrollY;
 	parallaxBackground.style.transform = `translateY(${parallaxSpeed * distance}px)`;
