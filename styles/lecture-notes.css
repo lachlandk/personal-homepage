@@ -90,6 +90,11 @@ main {
 	margin: 1rem 0;
 }
 
+.page-nav-focus {
+	font-weight: 900;
+	text-decoration: underline;
+}
+
 @media screen and (max-width: 1050px) {
 	#page-nav {
 		display: none;
