@@ -15,7 +15,7 @@ function findCurrentSection() { // find which section we are currently looking a
     highlightCurrentSection(currentSection.navLink);
 }
 
-const pageNavLinks = document.querySelectorAll("#page-nav li a");
+const pageNavLinks = document.querySelectorAll(".ltx_in_page_navbar li a");
 const sectionAnchors = document.querySelectorAll(".section-anchor");
 const linksAndPositions = [...sectionAnchors].map(anchor => ({navLink: document.getElementById(`page-nav-${anchor.id}`), top: () => anchor.getBoundingClientRect().top}));
 
