@@ -39,6 +39,13 @@ const observer = new IntersectionObserver(entries => {
 				scrollSections[i].classList.replace("scroll-hidden", "scroll-show");
 				const nav = document.getElementById(`${scrollSections[i].children[0].id}-link`);
 				nav.classList.replace("scroll-hidden", "scroll-show");
+				
+				const textCardContainer = scrollSections[i].querySelector(`.text-card-container`);
+				if (textCardContainer !== null) {
+					textCardContainer.querySelectorAll(".scroll-animate").forEach(card => {
+						card.classList.replace("scroll-hidden", "scroll-show");
+					});
+				}
 			}
 			if (sectionIndex == scrollSections.length - 1) {
 				observer.disconnect(); // remove observer when all sections have loaded in

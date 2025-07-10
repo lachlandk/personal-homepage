@@ -61,7 +61,7 @@ header {
 	margin-left: var(--grid-gap);
 	min-height: 80vh;
 	padding: var(--grid-gap) 0;
-	font-size: 32px;
+	font-size: 24px;
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: flex-end;
@@ -72,10 +72,8 @@ header img {
 	max-width: 20rem;
 }
 
-@media screen and (max-width: 1200px) {
-	header {
-		font-size: 24px;
-	}
+header p {
+	margin: 0.5em 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -123,6 +121,18 @@ header img {
 
 	.scroll-animate {
 		transition: opacity 1s, transform 1s;
+	}
+
+	.text-card.scroll-animate {
+		transition-delay: 0.5s;
+	}
+
+	.text-card.scroll-animate:nth-child(2) {
+		transition-delay: 1s;
+	}
+
+	.text-card.scroll-animate:nth-child(3) {
+		transition-delay: 1.5s;
 	}
 }
 
@@ -188,6 +198,7 @@ section {
 
 .text-card {
 	position: relative;
+	margin: 0.5em 0;
 }
 
 /* the title, description, and link for the card */
@@ -203,6 +214,7 @@ section {
 			rgba(0, 0, 0, 0.4) 10%,
 			rgba(0, 0, 0, 1)
 	);
+	color: white;
 }
 
 /* card title */
@@ -228,6 +240,7 @@ section {
 	background: var(--colour-accent);
 	padding: 0.3em 0.8em;
 	border-radius: 0.25em;
+	color: white;
 }
 
 /* only do these animations if the primary pointing device can hover and animations are enabled */
